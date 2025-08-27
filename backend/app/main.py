@@ -34,9 +34,13 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_URL, "http://localhost:3000"],
+    allow_origins=[
+        "https://drinkswig-1.onrender.com",  # Your frontend URL
+        "http://localhost:3000",  # For local development  
+        "*"  # Temporarily allow all origins for testing
+    ],
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
