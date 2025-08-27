@@ -30,6 +30,8 @@ class ApiError extends Error {
 const apiRequest = async (endpoint: string, options: RequestInit = {}) => {
   const url = `${API_URL}${endpoint}`;
   
+  console.log('Making request to:', url); // Debug log
+  
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${API_KEY}`,
@@ -41,22 +43,25 @@ const apiRequest = async (endpoint: string, options: RequestInit = {}) => {
       ...options,
       headers,
     });
-
+    
+    console.log('Response status:', response.status); // Debug log
+    
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
+      console.log('Error data:', errorData); // Debug log
       throw new ApiError(
         errorData.detail || `HTTP ${response.status}: ${response.statusText}`,
         response.status
       );
     }
-
     return await response.json();
   } catch (error) {
+    console.log('Caught error:', error); // Debug log
+    
     if (error instanceof ApiError) {
       throw error;
     }
     
-    // Network or other errors
     throw new ApiError(
       'Network error. Please check your connection and try again.'
     );
