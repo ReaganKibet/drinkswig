@@ -1,4 +1,4 @@
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const API_URL = process.env.REACT_APP_API_URL || 'https://drinkswig.onrender.com';
 const API_KEY = process.env.REACT_APP_API_KEY || 'your-api-key-here';
 
 interface PaymentRequest {
