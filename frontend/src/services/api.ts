@@ -1,5 +1,5 @@
 const API_URL = process.env.REACT_APP_API_URL || 'https://drinkswig.onrender.com';
-const API_KEY = process.env.REACT_APP_API_KEY || 'ya5c6523a2dbf550e30c074fc0bf75fe6a669630c7dd141d1150bf064c884df64';
+const API_KEY = process.env.REACT_APP_API_KEY || 'your-api-key-here';
 
 interface PaymentRequest {
   phone: string;
