@@ -35,7 +35,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://drinkswig-1.onrender.com",  # Your frontend URL
+        "https://drinkswig.netlify.app/",  # Your frontend URL
         "http://localhost:3000",  # For local development  
         "*"  # Temporarily allow all origins for testing
     ],
