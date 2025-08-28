@@ -38,7 +38,7 @@ const PaymentStatus: React.FC<PaymentStatusProps> = ({
               
               // Redirect to WhatsApp after 3 seconds
               setTimeout(() => {
-                const whatsappUrl = `https://wa.me/254700000000?text=Hi%2C%20I%27ve%20just%20paid%20KES%20${amount}%20for%20the%20kombucha%20order.%20Transaction%20Code%3A%20${response.transaction_code}%20Phone%3A%20${phone}`;
+                const whatsappUrl = `https://wa.me/254724577131?text=Hi%2C%20I%27ve%20just%20paid%20KES%20${amount}%20for%20the%20kombucha%20order.%20Transaction%20Code%3A%20${response.transaction_code}%20Phone%3A%20${phone}`;
                 window.location.href = whatsappUrl;
               }, 3000);
               
