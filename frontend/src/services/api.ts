@@ -27,11 +27,15 @@ class ApiError extends Error {
   }
 }
 
+const sanitizeUrl = (base: string, endpoint: string) => {
+  return `${base.replace(/\/+$/, '')}/${endpoint.replace(/^\/+/, '')}`;
+};
+
 const apiRequest = async (endpoint: string, options: RequestInit = {}) => {
-  const url = `${API_URL}${endpoint}`;
-  
+  const url = sanitizeUrl(API_URL, endpoint);
+
   console.log('Making request to:', url); // Debug log
-  
+
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${API_KEY}`,
@@ -43,9 +47,9 @@ const apiRequest = async (endpoint: string, options: RequestInit = {}) => {
       ...options,
       headers,
     });
-    
+
     console.log('Response status:', response.status); // Debug log
-    
+
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       console.log('Error data:', errorData); // Debug log
@@ -57,11 +61,11 @@ const apiRequest = async (endpoint: string, options: RequestInit = {}) => {
     return await response.json();
   } catch (error) {
     console.log('Caught error:', error); // Debug log
-    
+
     if (error instanceof ApiError) {
       throw error;
     }
-    
+
     throw new ApiError(
       'Network error. Please check your connection and try again.'
     );
