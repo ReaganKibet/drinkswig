@@ -301,9 +301,9 @@ async def get_payment_history(
 async def register_c2b_urls():
     """Register C2B URLs for paybill/till payments"""
     try:
-        # Use your ngrok URL for callbacks
-        confirmation_url = "https://c2730c853c16.ngrok-free.app/api/payments/c2b/confirmation"
-        validation_url = "https://c2730c853c16.ngrok-free.app/api/payments/c2b/validation"
+        # ✅ Use your Render URL
+        confirmation_url = "https://drinkswig.onrender.com/api/payments/c2b/confirmation"
+        validation_url = "https://drinkswig.onrender.com/api/payments/c2b/validation"
         
         result = await mpesa_service.register_c2b_urls(confirmation_url, validation_url)
         
