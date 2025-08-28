@@ -302,8 +302,10 @@ async def register_c2b_urls():
     """Register C2B URLs for paybill/till payments"""
     try:
         # ✅ Use your Render URL
+        
         confirmation_url = "https://drinkswig.onrender.com/api/payments/c2b/confirmation"
         validation_url = "https://drinkswig.onrender.com/api/payments/c2b/validation"
+       
         
         result = await mpesa_service.register_c2b_urls(confirmation_url, validation_url)
         
